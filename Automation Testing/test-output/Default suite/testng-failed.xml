@@ -3,13 +3,14 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="tests.Register_NegativeScenario">
+      <class name="tests.ProductTest">
         <methods>
-          <include name="Register_EmailExist"/>
+          <include name="TPR"/>
           <include name="closeBrowser"/>
+          <include name="TPC"/>
           <include name="openBrowser"/>
         </methods>
-      </class> <!-- tests.Register_NegativeScenario -->
+      </class> <!-- tests.ProductTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

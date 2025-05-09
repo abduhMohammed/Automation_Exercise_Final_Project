@@ -2,6 +2,7 @@ package pages;
 
 import java.util.List;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -100,7 +101,7 @@ public class RegisterPage extends PageBase{
 	@FindBy(css="#form > div > div > div:nth-child(3) > div > form > p")
 	public WebElement failedMessaee;
 	
-	public void openRegisteraionPage(String name , String email) {
+	public void userCanRegister(String name , String email) {
 		nameTxt.sendKeys(name);
 		emails.get(1).sendKeys(email);
 		
@@ -115,7 +116,9 @@ public class RegisterPage extends PageBase{
 		
 		maleGenderRadioBtn.click();
 		passwordTxt.sendKeys(password);
-		
+		JavascriptExecutor scrolldownn = (JavascriptExecutor) driver;
+	  	scrolldownn.executeScript("document.evaluate('//*[@id=\"password\"]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue.scrollIntoView();\n"
+	  			+ "");
 		Select makeDaysList = new Select(daysList);
 		Select makeMonthsList = new Select(monthsList);
 		Select makeYearsList = new Select(yearsList);
@@ -133,6 +136,8 @@ public class RegisterPage extends PageBase{
 		companyTxt.sendKeys(company);
 		
 		addressTxt1.sendKeys(address1);
+	  	scrolldownn.executeScript("document.evaluate('//*[@id=\"address1\"]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue.scrollIntoView();\n"
+	  			+ "");
 		addressTxt2.sendKeys(address2);
 		
 		makeCountryList.selectByVisibleText(country);

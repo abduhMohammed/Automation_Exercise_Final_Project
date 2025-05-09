@@ -18,7 +18,7 @@ public class Login_negativeScenario extends TestBase {
 	  
 	  Assert.assertEquals("Login to your account", loginObject.loginMessage.getText());
 	  
-	  loginObject.userCanLogin("abdelrahmanosama7651111@gmail.com", "123456789");
+	  loginObject.userCanLogin("amarazzam500@gmail.com", "123");
 	  
 	  Thread.sleep(3000);
 	  

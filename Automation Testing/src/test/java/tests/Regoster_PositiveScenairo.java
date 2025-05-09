@@ -17,12 +17,12 @@ public class Regoster_PositiveScenairo extends TestBase{
     	Thread.sleep(3000);
     	
     	Assert.assertEquals("New User Signup!", registerObject.newUserMessage.getText());
-    	registerObject.openRegisteraionPage("Abdelrahman Osama","abdelrahmanosama76899@gmail.com");
+    	registerObject.userCanRegister("Abdo Mohamed","abdomohamed18558@gmail.com");
     	Thread.sleep(3000);
     	
     	Assert.assertTrue(registerObject.enterAccountMessage.getText().equalsIgnoreCase("Enter Account Information"));
     	
-    	registerObject.enterAccountInformation("123456789",25,"December","2003","Abdelrahman","Osama","Itworx","Fostat","Elsayeda zeinab","India","aaaaaa","bbbbb","17652","01013468789");
+    	registerObject.enterAccountInformation("123456789",18,"December","2004","Abdo","Mohamed","Itworx","Fostat","Elsayeda zeinab","India","aaaaaa","bbbbb","17652","01013468789");
     	Thread.sleep(3000);
     	Assert.assertEquals("ACCOUNT CREATED!", registerObject.successMessage.getText());
     	

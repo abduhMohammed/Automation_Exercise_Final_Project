@@ -17,7 +17,7 @@ public class Register_NegativeScenario extends TestBase {
   	Thread.sleep(3000);
   	
   	Assert.assertEquals("New User Signup!", registerObject.newUserMessage.getText());
-  	registerObject.openRegisteraionPage("Abdelrahman Osama","abdelrahmanosama768@gmail.com");
+  	registerObject.userCanRegister("Abdo Mohamed","abdomohamed188@gmail.com");
   	Thread.sleep(3000);
   	
   	Assert.assertEquals("Email Address already exist!", registerObject.failedMessaee.getText());

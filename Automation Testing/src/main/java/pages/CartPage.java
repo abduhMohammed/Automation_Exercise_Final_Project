@@ -1,5 +1,4 @@
 package pages;
-
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -7,13 +6,14 @@ import org.openqa.selenium.support.FindBy;
 
 public class CartPage extends PageBase {
   	JavascriptExecutor scrolldown = (JavascriptExecutor) driver;
-
+  	
 	public CartPage(WebDriver driver) {
 		super(driver);
+	
 	}
 	
 	@FindBy(xpath="//*[@id=\"empty_cart\"]/p/b")
-	public WebElement CartMessage;
+	public WebElement CartMessage;	
 	
 	@FindBy(xpath = "//*[@id=\"empty_cart\"]/p/a/u")
 	public WebElement HereBtn;
@@ -46,7 +46,7 @@ public class CartPage extends PageBase {
 	public WebElement clearCartBtn;
 	
 	@FindBy(xpath = "//*[@id=\"do_action\"]/div[1]/div/div/a")
-	public WebElement CheckOutBtn;	
+	public WebElement CheckOutBtn;
 	
 	@FindBy(xpath = "//*[@id=\"checkoutModal\"]/div/div/div[2]/p[2]/a/u")
 	public WebElement loginBtn;
@@ -83,6 +83,7 @@ public class CartPage extends PageBase {
 	
 	@FindBy(xpath = "//*[@id=\"form\"]/div/div/div/div/a")
 	public WebElement ContinueBtn;
+	
 
 	public void openProductsPage() {
 		HereBtn.click();

@@ -7,14 +7,17 @@ import org.testng.annotations.Test;
 import pages.CartPage;
 import pages.HomePage;
 import pages.LoginPage;
+import pages.RegisterPage;
 
-public class cartTest extends TestBase{
+public class cartTestRegister extends TestBase{
 	HomePage homeObject = new HomePage(driver);
 	CartPage cartObject = new CartPage(driver);
 	LoginPage loginObject = new LoginPage(driver);
+	RegisterPage RegisterObjectForCart = new RegisterPage(driver);
+	
   @Test
-  public void f() throws InterruptedException {
-  	Assert.assertEquals("rgba(255, 165, 0, 1)", homeObject.homeLink.getCssValue("color"));
+ public void cartRegister() throws InterruptedException {
+	  Assert.assertEquals("rgba(255, 165, 0, 1)", homeObject.homeLink.getCssValue("color"));
 	  homeObject.openCartPage();
 
   	Assert.assertTrue(true, "is empty!");
@@ -43,14 +46,19 @@ public class cartTest extends TestBase{
   	cartObject.checkOut();
   	Thread.sleep(3000);
   	cartObject.login();
+  	Thread.sleep(3000);  
+	Assert.assertEquals("New User Signup!", RegisterObjectForCart.newUserMessage.getText());
+	RegisterObjectForCart.userCanRegister("amar","amarazzam50012@gmail.com");
+	Thread.sleep(3000);
+	
+	RegisterObjectForCart.enterAccountInformation("123456789",25,"December","2003","Abdelrahman","Osama","Itworx","Fostat","Elsayeda zeinab","India","aaaaaa","bbbbb","17652","01013468789");
   	Thread.sleep(3000);
-  	Assert.assertEquals("Login to your account", loginObject.loginMessage.getText());
-	  
-	  loginObject.userCanLogin("amarazzam500@gmail.com", "123");
-	  
-	  Thread.sleep(3000);
-	  
-	  Assert.assertTrue(loginObject.loggedInLink.getText().contains("Logged in as"));
+  	Assert.assertEquals("ACCOUNT CREATED!", RegisterObjectForCart.successMessage.getText());
+	
+  	RegisterObjectForCart.continueAccount();
+	Thread.sleep(3000);
+	
+	Assert.assertTrue(RegisterObjectForCart.loggedInLink.getText().contains("Logged in as"));
 	  homeObject.openCartPage();
 	  Thread.sleep(2000);
 	  cartObject.checkOut();
@@ -67,6 +75,5 @@ public class cartTest extends TestBase{
 	  Assert.assertEquals("Congratulations! Your order has been confirmed!" , cartObject.orderPlaced.getText());
 	  cartObject.Continue();
 	  Assert.assertEquals("rgba(255, 165, 0, 1)", homeObject.homeLink.getCssValue("color"));
-
-	}
+  }
 }
